@@ -18,7 +18,7 @@ $ embulk gem install embulk-parser-csv_with_schema_file
 ## Configuration
 
 - **schema_path**: schema file path. json. (string, required)
-- **columns**: this config is ignored in this plugin.
+- **columns**: Optional. If exists, overwrite in schema file that same column name. (hash, default: `[]`)
 - other configs extends csv parser. see : http://www.embulk.org/docs/built-in.html#csv-parser-plugin
 
 ## Example
