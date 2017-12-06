@@ -35,7 +35,7 @@ out:
   type: stdout
 ```
 
-* csv_schema.json example
+### Schema file example (csv_schema.json)
 
 ```json
 [
@@ -55,6 +55,28 @@ out:
       "type": "timestamp"
    }
 ]
+```
+
+### Custom column option example  
+
+* this option overwrites schema file's field that has same field name.
+* this usage is with bigquery input : https://github.com/jo8937/embulk-input-bigquery_extract_files
+
+```yml
+
+in:
+  type: file
+  path_prefix: /tmp/csv/
+  parser:
+    type: csv_with_schema_file
+    default_timestamp_format: '%Y-%m-%d %H:%M:%S'
+    schema_path: /tmp/csv_schema.json
+    columns:
+      - {name: Date2, type: timestamp, format: '%Y-%m-%d %H:%M:%S.%N %z'}
+out: 
+  type: stdout
+  
+
 ```
 
 
